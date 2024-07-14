@@ -7,12 +7,34 @@
     <link rel="stylesheet" href="./src/output.css">
 </head>
 <body>
-    <div class="xxl:container">
-        <div class="grid grid-cols-12 gap-4 p-5">
+    
+    <div class="lg:container mx-auto">
+        <header class="flex flex-wrap sm:justify-start sm:flex-nowrap w-full bg-white text-sm py-4 dark:bg-neutral-800">
+            <nav class="w-full mx-auto px-4 sm:flex sm:items-center sm:justify-between" aria-label="Global">
+              <div class="flex items-center justify-between">
+                <a class="flex-none text-2xl font-semibold dark:text-white" href="#">Diana's Store</a>
+                <div class="sm:hidden">
+                  <button type="button" class="hs-collapse-toggle p-2 inline-flex justify-center items-center gap-x-2 rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-transparent dark:border-neutral-700 dark:text-white dark:hover:bg-white/10" data-hs-collapse="#navbar-collapse-with-animation" aria-controls="navbar-collapse-with-animation" aria-label="Toggle navigation">
+                    <svg class="hs-collapse-open:hidden flex-shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" x2="21" y1="6" y2="6"/><line x1="3" x2="21" y1="12" y2="12"/><line x1="3" x2="21" y1="18" y2="18"/></svg>
+                    <svg class="hs-collapse-open:block hidden flex-shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+                  </button>
+                </div>
+              </div>
+              <div id="navbar-collapse-with-animation" class="hs-collapse hidden overflow-hidden transition-all duration-300 basis-full grow sm:block">
+                <div class="flex flex-col gap-5 mt-5 sm:flex-row sm:items-center sm:justify-end sm:mt-0 sm:ps-5">
+                    <a class="font-medium text-gray-600 hover:text-gray-400 dark:text-neutral-400 dark:hover:text-neutral-500 text-base" href="index.html">Store</a>
+                    <a class="font-medium text-gray-600 hover:text-gray-400 dark:text-neutral-400 dark:hover:text-neutral-500 text-base" href="https://www.facebook.com/diana.c.prestoza" target="_blank" rel="noopener">Chat Seller</a>
+                </div>
+              </div>
+            </nav>
+        </header>
+
+        <div class="grid grid-cols-12 gap-4 p-4" id="productGrid">
+            <!-- Product items -->
             <div class="col-span-6 sm:col-span-4 md:col-span-3 lg:col-span-3 xl:col-span-2 2xl:col-span-2 ">
                 <a class="flex flex-col group bg-white border shadow-sm rounded-xl overflow-hidden hover:shadow-lg transition dark:bg-neutral-900 dark:border-neutral-700 dark:shadow-neutral-700/70" href="#">
                     <div class="relative pt-[70%] sm:pt-[80%] lg:pt-[80%] rounded-t-xl overflow-hidden">
-                        <img class="size-full absolute top-0 start-0 group-hover:scale-105 transition-transform duration-500 ease-in-out rounded-t-xl" src="./src/img/johnson-peach.png" alt="Johnson Peach">
+                        <img class="size-full d-none absolute top-0 start-0 group-hover:scale-105 transition-transform duration-500 ease-in-out rounded-t-xl" src="./src/img/johnson-peach.png" alt="Johnson Peach">
                     </div>
                     <div class="p-4 md:p-5">
                         <h3 class="text-lg font-semibold text-gray-800 dark:text-white truncate hover:overflow-visible hover:whitespace-normal">Johnson's Peach Bath</h3>
@@ -20,20 +42,10 @@
                             <h3 class="text-md">&#x20B1;320</h3>
                             <h3 class="text-md">5 available</h3>
                         </div>
-                        <div class="mt-5 gap-2 flex xl:justify-between flex-col 2xl:flex-row">
-                            <button type="button" class="py-3 px-4 inline-flex items-center justify-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-blue-200 text-blue-500 hover:bg-blue-100 disabled:opacity-50 disabled:pointer-events-none">
-                                Add to cart
-                                <svg class="flex-shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                  <path d="m5 11 4-7"></path>
-                                  <path d="m19 11-4-7"></path>
-                                  <path d="M2 11h20"></path>
-                                  <path d="m3.5 11 1.6 7.4a2 2 0 0 0 2 1.6h9.8c.9 0 1.8-.7 2-1.6l1.7-7.4"></path>
-                                  <path d="m9 11 1 9"></path>
-                                  <path d="M4.5 15.5h15"></path>
-                                  <path d="m15 11-1 9"></path>
-                                </svg>
+                        <div class="mt-5 gap-2 flex xl:justify-between flex-col 2xl:flex-col">
+                            <button type="button" class="py-3 px-4 inline-flex items-center justify-center gap-x-2 text-sm text-center font-semibold rounded-lg border border-transparent bg-blue-500 text-white hover:opacity-90 disabled:pointer-events-none" onclick="goToLink()">
+                                Buy Now
                             </button>
-                            <button type="button" class="py-3 px-4 inline-flex items-center justify-center gap-x-2 text-sm text-center font-semibold rounded-lg border border-transparent bg-blue-500 text-white hover:opacity-90 disabled:pointer-events-none" onclick="goToLink()">Buy Now</button>
                         </div>                  
                     </div>
                 </a>
@@ -49,40 +61,27 @@
                             <h3 class="text-md">&#x20B1;320</h3>
                             <h3 class="text-md">5 available</h3>
                         </div>
-                        <div class="mt-5 gap-2 flex xl:justify-between flex-col 2xl:flex-row">
-                            <button type="button" class="py-3 px-4 inline-flex items-center justify-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-blue-200 text-blue-500 hover:bg-blue-100 disabled:opacity-50 disabled:pointer-events-none">
-                                Add to cart
-                                <svg class="flex-shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                  <path d="m5 11 4-7"></path>
-                                  <path d="m19 11-4-7"></path>
-                                  <path d="M2 11h20"></path>
-                                  <path d="m3.5 11 1.6 7.4a2 2 0 0 0 2 1.6h9.8c.9 0 1.8-.7 2-1.6l1.7-7.4"></path>
-                                  <path d="m9 11 1 9"></path>
-                                  <path d="M4.5 15.5h15"></path>
-                                  <path d="m15 11-1 9"></path>
-                                </svg>
+                        <div class="mt-5 gap-2 flex xl:justify-between flex-col 2xl:flex-col">
+                            <button type="button" class="py-3 px-4 inline-flex items-center justify-center gap-x-2 text-sm text-center font-semibold rounded-lg border border-transparent bg-blue-500 text-white hover:opacity-90 disabled:pointer-events-none" onclick="goToLink()">
+                                Buy Now
                             </button>
-                            <button type="button" class="py-3 px-4 inline-flex items-center justify-center gap-x-2 text-sm text-center font-semibold rounded-lg border border-transparent bg-blue-500 text-white hover:opacity-90 disabled:pointer-events-none" onclick="goToLink()">Buy Now</button>
                         </div>                  
                     </div>
                 </a>
             </div>
-            
-            
-            
         </div>
         
-    </div>
+     
 
+    </div>
 
     <script src="./node_modules/preline/dist/preline.js"></script>
     <script>
-        function goToLink(){
+       function goToLink(){
+        let url = "./public/payment.html";
 
-            let url = "https://www.facebook.com/diana.c.prestoza";
-
-            window.open(url, '_blank');
-        }
+        window.open(url, '_self');
+       }
     </script>
 </body>
 </html>
